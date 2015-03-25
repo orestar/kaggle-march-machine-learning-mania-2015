@@ -28,4 +28,4 @@ start using point spreads
 seed weighted solution: score = 0.59071 
 
 * srs_ratings.R  
-
+weight of 0.02025  
