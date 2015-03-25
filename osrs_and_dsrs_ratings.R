@@ -1,11 +1,12 @@
-# Load Data
+# Load Data matches
 matches <- read.csv("Data/sample_submission.csv", header = TRUE, stringsAsFactors = FALSE)
 matches$year <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][1]})
 matches$lowId <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][2]})
 matches$highId <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][3]})
+# Load Data teams
 teams <- read.csv("Data/teams.csv", header = TRUE, stringsAsFactors = FALSE)
 teams$team_fullname <- teams$team_name
-
+# Load Data seasons ratings
 srs_2011 <- read.csv("Data/cbb_seasons_2011_ratings.csv", header = TRUE, stringsAsFactors = FALSE)
 srs_2012 <- read.csv("Data/cbb_seasons_2012_ratings.csv", header = TRUE, stringsAsFactors = FALSE)
 srs_2013 <- read.csv("Data/cbb_seasons_2013_ratings.csv", header = TRUE, stringsAsFactors = FALSE)
@@ -30,10 +31,12 @@ colnames(matches)[8] <- "highIdOSRS"
 matches <- cbind(matches, merged3["DSRS"])
 colnames(matches)[9] <- "highIdDSRS"
 
+# Calculations
 matches$calculated <- 0.50 + (matches$lowIdOSRS - matches$highIdOSRS)*0.018 + (matches$lowIdDSRS - matches$highIdDSRS)*0.026
 matches$calculated[matches$calculated > 1] <- 1
 matches$calculated[matches$calculated < 0] <- 0
 
-
+# Submit Data
 submit <- data.frame(id = matches$id, pred = matches$calculated)
+# Write osrs_and_dsrs_ratings_11.csv
 write.csv(submit, file = "Output/osrs_and_dsrs_ratings_11.csv", row.names = FALSE, quote=FALSE)
