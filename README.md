@@ -4,36 +4,37 @@
  - Stage 2 :basketball: :basketball: - Predict the 2015 NCAA Basketball Tournament
  - Stage 3 :basketball: :basketball: :basketball: - Predict the 2016 NCAA Basketball Tournament
 
-#### <i class="icon-file"></i>List of R codes :
+#### List of R codes :
 
 **2015_osrs_and_dsrs_ratings.R**  
 generate predictions for 2015 march madness  
-<i class="icon-upload"></i> 2015_osrs_and_dsrs_ratings_2.csv
+2015_osrs_and_dsrs_ratings_2.csv  
+Score : 0.469625
 
 **complex_srs_ratings.R**  
 try to use a more complex model of with srs ratings  
-<i class="icon-upload"></i> complex_srs_ratings.csv
+complex_srs_ratings.csv
 
 **heavy_seed_weighting.R**  
 add a heavier weight to the seed difference: score=0.59366  
-<i class="icon-upload"></i> heavy_simple_seed.csv
+heavy_simple_seed.csv
 
 **light_seed_weighting.R**  
 .0295 seed weight  
-<i class="icon-upload"></i> light_simple_seed_295.csv
+light_simple_seed_295.csv
 
 **osrs_and_dsrs_ratings.R**  
 .008 DSRS over OSRS  
-<i class="icon-upload"></i> osrs_and_dsrs_ratings_11.csv
+osrs_and_dsrs_ratings_11.csv
 
 **point_spreads.R**  
 Start using point spreads file
-<i class="icon-upload"></i> pointspreads.csv  
+pointspreads.csv  
 
 **simple_seed_solution.R**  
 Seed weighted solution: score = 0.59071 
-<i class="icon-upload"></i> simple_seed_solution.csv  
+simple_seed_solution.csv  
 
 **srs_ratings.R**  
 Has a weight of 0.02025  
-<i class="icon-upload"></i> srs_ratings4.csv
+srs_ratings4.csv
