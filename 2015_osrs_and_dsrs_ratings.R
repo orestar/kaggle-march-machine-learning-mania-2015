@@ -3,6 +3,7 @@ matches <- read.csv("Data/sample_submission_2015.csv", header = TRUE, stringsAsF
 matches$year <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][1]})
 matches$lowId <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][2]})
 matches$highId <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][3]})
+
 teams <- read.csv("Data/teams.csv", header = TRUE, stringsAsFactors = FALSE)
 teams$team_fullname <- teams$team_name
 
@@ -11,6 +12,7 @@ srs_ratings <- read.csv("Data/cbb_seasons_2015_ratings.csv", header = TRUE, stri
 merged <- merge(srs_ratings, teams, by.x=c("School"), by.y=c("team_fullname"))
 merged2 <- merge(matches, merged, by.x=c("lowId"), by.y=c("team_id"))
 matches <- cbind(matches, merged2["OSRS"])
+
 colnames(matches)[6] <- "lowIdOSRS"
 matches <- cbind(matches, merged2["DSRS"])
 colnames(matches)[7] <- "lowIdDSRS"
@@ -18,6 +20,7 @@ colnames(matches)[7] <- "lowIdDSRS"
 merged3 <- merge(matches, merged, by.x=c("highId"), by.y=c("team_id"))
 merged3 <- merged3[order(merged3$id), ]
 matches <- cbind(matches, merged3["OSRS"])
+
 colnames(matches)[8] <- "highIdOSRS"
 matches <- cbind(matches, merged3["DSRS"])
 colnames(matches)[9] <- "highIdDSRS"
