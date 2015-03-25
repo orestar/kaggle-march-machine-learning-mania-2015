@@ -1,8 +1,9 @@
-# Load Data
+# Load Data matches
 matches <- read.csv("Data/sample_submission.csv", header = TRUE, stringsAsFactors = FALSE)
 matches$year <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][1]})
 matches$lowId <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][2]})
 matches$highId <- sapply(matches$id, FUN=function(x) {strsplit(x, split='[_]')[[1]][3]})
+# Load Data teams
 teams <- read.csv("Data/teams.csv", header = TRUE, stringsAsFactors = FALSE)
 teams$team_fullname <- teams$team_name
 
@@ -29,6 +30,7 @@ matches$calculated <- 0.50 + (matches$lowIdSRS - matches$highIdSRS)*0.02025
 matches$calculated[matches$calculated > 1] <- 1
 matches$calculated[matches$calculated < 0] <- 0
 
-
+# Submit data
 submit <- data.frame(id = matches$id, pred = matches$calculated)
+# Write srs_ratings4.cs
 write.csv(submit, file = "Output/srs_ratings4.csv", row.names = FALSE, quote=FALSE)
