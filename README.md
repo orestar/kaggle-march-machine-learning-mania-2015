@@ -4,7 +4,7 @@
  - Stage 2 :basketball: :basketball: - Predict the 2015 NCAA Basketball Tournament
  - Stage 3 :basketball: :basketball: :basketball: - Predict the 2016 NCAA Basketball Tournament
 
-List of R codes :
+#### <i class="icon-file"></i>List of R codes :
 
 **2015_osrs_and_dsrs_ratings.R**  
 generate predictions for 2015 march madness  
